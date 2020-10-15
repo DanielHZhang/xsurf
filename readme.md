@@ -25,6 +25,8 @@ yarn add xsurf
 
 ### Middlewares and plugins
 
+Want to integrate CSRF protection middleware into your framework of choice? These middlewares use xsurf:
+
 - Express: express-xsurf
 - Fastify: fastify-xsurf
 
