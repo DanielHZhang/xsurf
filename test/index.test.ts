@@ -1,4 +1,10 @@
-import {createToken, createChecksum, urlSafeBase64, verifyChecksum} from 'src/index';
+import {
+  createToken,
+  createTokenAsync,
+  createChecksum,
+  urlSafeBase64,
+  verifyChecksum,
+} from 'src/index';
 
 describe('Utility functions', () => {
   test('Encode URL-safe base64', () => {
@@ -9,8 +15,23 @@ describe('Utility functions', () => {
 });
 
 describe('CSRF tokens', () => {
-  test('Generate CSRF token', () => {
+  test('Generate CSRF token sync', () => {
     const token = createToken();
+    expect(token.length).toEqual(32);
+
+    const randomNumber = Math.round(Math.random() * 100);
+    const customToken = createToken(randomNumber);
+    const tokenBuffer = Buffer.from(customToken);
+    const expectedByteSize = 4 * Math.ceil(randomNumber / 3);
+    const paddingDifference = expectedByteSize - tokenBuffer.length;
+    // Due to base64 padding the final sequence with '=' or '==', which is removed by our
+    // url-safe encode, the expected difference in byte size should be 0 <= delta <= 2
+    expect(paddingDifference).toBeLessThanOrEqual(2);
+    expect(paddingDifference).toBeGreaterThanOrEqual(0);
+  });
+
+  test('Generate CSRF token async', async () => {
+    const token = await createTokenAsync();
     expect(token.length).toEqual(32);
   });
 

@@ -4,7 +4,7 @@ import crypto from 'crypto';
 const urlSafeRegex = /[+/=]/g;
 const replaceMap: Record<string, string> = {'+': '-', '/': '_', '=': ''};
 
-/** Use 24 bytes of random data so the encoded representation is 32 characters. */
+/** Use a default of 24 bytes of random data so the encoded representation is 32 characters. */
 const randomDataLength = 24;
 
 export function urlSafeBase64(rawBase64: string): string {
@@ -12,10 +12,26 @@ export function urlSafeBase64(rawBase64: string): string {
 }
 
 /**
- * Create a 32-byte CSRF token.
+ * Create a CSRF token of the specified length. Defaults to 24 bytes of random data.
+ * @param length Number of bytes of random data to use for the token.
  */
-export function createToken(): string {
-  const randomBytes = crypto.randomBytes(randomDataLength);
+export function createToken(length: number = randomDataLength): string {
+  const randomBytes = crypto.randomBytes(length);
+  return urlSafeBase64(randomBytes.toString('base64'));
+}
+
+/**
+ * Asynchronously create a CSRF token. The async version of `crypto.randomBytes` tends to
+ * sacrifice crypto ops/sec in favor of js ops/sec, and thus this method should only be
+ * used niche scenarios (i.e. when the specified length is large).
+ *
+ * See: https://github.com/uuidjs/uuid/issues/150
+ * @param length Number of bytes of random data to use for the token.
+ */
+export async function createTokenAsync(length: number = randomDataLength): Promise<string> {
+  const randomBytes = await new Promise<Buffer>((resolve, reject) => {
+    crypto.randomBytes(length, (error, buffer) => (error ? reject(error) : resolve(buffer)));
+  });
   return urlSafeBase64(randomBytes.toString('base64'));
 }
 
@@ -25,9 +41,8 @@ export function createToken(): string {
  * @param secret Shared secret key.
  */
 export function createChecksum(token: string, secret: string): string {
-  const hmac = crypto.createHmac('sha256', secret).update(token).digest();
-  const checksum = urlSafeBase64(hmac.toString('base64'));
-  return checksum;
+  const hmac = crypto.createHmac('sha256', secret).update(token).digest('base64');
+  return urlSafeBase64(hmac);
 }
 
 /**
