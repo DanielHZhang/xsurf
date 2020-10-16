@@ -76,7 +76,8 @@ Verify the validity the provided token against the true checksum using a time-sa
 ```typescript
 const secret = process.env.CSRF_SECRET;
 const headerToken = request.headers['x-csrf-token'];
-// Validate the request header token by comparing its checksum to the true checksum stored in a cookie
+// Validate the request header token by comparing its
+// checksum to the true checksum stored in a cookie
 const checksum = request.cookies['x-csrf-checksum'];
 const valid = verifyChecksum(headerToken, checksum, secret);
 ```
