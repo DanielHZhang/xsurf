@@ -86,8 +86,8 @@ const valid = verifyChecksum(headerToken, checksum, secret);
 
 [MIT License](https://github.com/DanielHZhang/xsurf/blob/main/license.md)
 
-[ci-image]: https://github.com/DanielHZhang/xsurf/workflows/nodejs-ci/badge.svg
-[ci-url]: https://github.com/DanielHZhang/xsurf/workflows/nodejs-ci
+[ci-image]: https://github.com/DanielHZhang/xsurf/workflows/build-test/badge.svg
+[ci-url]: https://github.com/DanielHZhang/xsurf/workflows/build-test
 [node-image]: https://badgen.net/npm/node/xsurf
 [node-url]: https://nodejs.org/en/download
 [npm-downloads-image]: https://badgen.net/npm/dm/xsurf
