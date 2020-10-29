@@ -27,8 +27,8 @@ yarn add xsurf
 
 Want to integrate CSRF protection middleware into your framework of choice? These middlewares use xsurf:
 
-- Express: express-xsurf
-- Fastify: fastify-xsurf
+- Express: [express-xsurf][express-xsurf-url]
+- Fastify: [fastify-xsurf][fastify-xsurf-url]
 
 ## Usage API
 
@@ -93,3 +93,5 @@ const valid = verifyChecksum(headerToken, checksum, secret);
 [npm-downloads-image]: https://badgen.net/npm/dm/xsurf
 [npm-url]: https://npmjs.org/package/xsurf
 [npm-version-image]: https://badgen.net/npm/v/xsurf
+[fastify-xsurf-url]: https://github.com/DanielHZhang/fastify-xsurf
+[express-xsurf-url]: https://github.com/DanielHZhang/express-xsurf
