@@ -545,9 +545,9 @@
     eslint-plugin-react "^7.21.4"
 
 "@supersede/prettier-config@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@supersede/prettier-config/-/prettier-config-1.0.0.tgz#88ae5829645c65089a5c125dbe01c6bebf05056a"
-  integrity sha512-zNO7aXgQXHaVikSzDx/TxZWknMXLLcU6UT3CGGnG3S10jZkD96PGVNgsWpd2E1NDxZEWmXth79RDWn6EpB9Wsg==
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@supersede/prettier-config/-/prettier-config-1.0.1.tgz#25bb4f1fe7b75d198f3e3a552f0578985cae40d5"
+  integrity sha512-cjAij1HRgZHBD3N/ILsp0T9gISaR9h+16KE0/BvXElZY2INuNkL28XUzuNwmyZznZbIY7x/b1f8iZhzNa+1nsw==
 
 "@types/babel__core@^7.0.0", "@types/babel__core@^7.1.7":
   version "7.1.10"
