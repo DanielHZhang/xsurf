@@ -4195,9 +4195,9 @@ ts-jest@^26.4.1:
     yargs-parser "20.x"
 
 tsc-suppress@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/tsc-suppress/-/tsc-suppress-1.0.1.tgz#b5cd1035386e0f0c2875a565f1a32720277268d9"
-  integrity sha512-51KO4zMopNHJsitvHji8EDAUHYUbeUtsbaH0uVqamTKE3F17b9nUy3NFSzHr+ui9GDp5HvgMOgoY8zmbAsZbCQ==
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/tsc-suppress/-/tsc-suppress-1.0.2.tgz#33856e77ce3b5d3b68c3cef127a8403ebab72b51"
+  integrity sha512-CAnFXXznRs3naC31IAUjEbPUpc30TO7EHfSrBrvUVygWaLLCpc6UeR4G7ty755IYNCB0NSo2uXO3iLbnqIl07g==
   dependencies:
     chalk "^4.1.0"
     minimist "^1.2.5"
