@@ -20,6 +20,9 @@
 		"node": ">=6.6.0"
 	},
 	"prettier": "@supersede/prettier-config",
+	"eslintConfig": {
+		"extends": "@supersede"
+	},
 	"scripts": {
 		"test": "jest -c ./test/jest.config.js",
 		"build": "rm -rf lib && tsc-suppress -p tsconfig.prod.json"
