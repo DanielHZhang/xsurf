@@ -1,5 +1,5 @@
 # Workflow for building and testing the project.
-name: build-test
+name: test-build
 
 on:
   push:
