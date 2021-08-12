@@ -1,7 +1,7 @@
 import {
+  createChecksum,
   createToken,
   createTokenAsync,
-  createChecksum,
   urlSafeBase64,
   verifyChecksum,
 } from 'src/index';
